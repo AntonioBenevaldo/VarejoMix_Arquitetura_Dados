@@ -1,0 +1,22 @@
+{
+  "origem": "Arquivo JSON incluido no pacote; nao comprova execucao MongoDB.",
+  "resultado": "APROVADO",
+  "documentos": 1088,
+  "sessoes": 500,
+  "eventos_por_tipo": {
+    "page_view": 500,
+    "search": 167,
+    "add_to_cart": 220,
+    "checkout_start": 123,
+    "purchase": 78
+  },
+  "sessoes_por_etapa": {
+    "search": 167,
+    "page_view": 500,
+    "add_to_cart": 220,
+    "checkout_start": 123,
+    "purchase": 78
+  },
+  "compras_reconciliadas": 78,
+  "conversao_total": 0.156
+}

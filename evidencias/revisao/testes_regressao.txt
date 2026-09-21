@@ -1,0 +1,10 @@
+test_duplicate_event_is_rejected (test_eventos.EventValidationTests.test_duplicate_event_is_rejected) ... ok
+test_event_before_registration_is_rejected (test_eventos.EventValidationTests.test_event_before_registration_is_rejected) ... ok
+test_orphan_purchase_is_rejected (test_eventos.EventValidationTests.test_orphan_purchase_is_rejected) ... ok
+test_valid_fixture (test_eventos.EventValidationTests.test_valid_fixture) ... ok
+test_wrong_amount_is_rejected (test_eventos.EventValidationTests.test_wrong_amount_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.283s
+
+OK

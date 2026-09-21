@@ -1,0 +1,35 @@
+Arquivo: 07_contagens.sql
+Executado em UTC: 2026-09-20T22:04:52.477612+00:00
+Servidor: PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+tabela | count
+customers | 200
+inventory_snapshots | 2800
+order_items | 10068
+orders | 5000
+payments | 5000
+pipeline_runs | 6
+products | 40
+stores | 5
+(8 linhas)
+status | pedidos
+CANCELLED | 236
+CREATED | 34
+DELIVERED | 4226
+PAID | 109
+SHIPPED | 395
+(5 linhas)
+vendas_confirmadas | valor_confirmado
+4730 | 2688893.36
+(1 linhas)
+sale_date | channel | valid_orders | active_customers | net_revenue | gross_margin | margin_rate | average_ticket
+2025-12-29 | ECOMMERCE | 14 | 13 | 7924.63 | 3048.88 | 0.3847 | 566.05
+2025-12-29 | STORE | 9 | 9 | 5251.48 | 2141.73 | 0.4078 | 583.50
+2025-12-28 | ECOMMERCE | 15 | 11 | 10472.47 | 4058.47 | 0.3875 | 698.16
+2025-12-28 | STORE | 17 | 12 | 9584.45 | 3767.95 | 0.3931 | 563.79
+2025-12-27 | ECOMMERCE | 22 | 15 | 10410.50 | 4014.00 | 0.3856 | 473.20
+2025-12-27 | STORE | 6 | 4 | 1989.33 | 792.83 | 0.3985 | 331.56
+2025-12-26 | ECOMMERCE | 16 | 14 | 8551.14 | 3313.14 | 0.3875 | 534.45
+2025-12-26 | STORE | 10 | 8 | 7386.46 | 2711.96 | 0.3672 | 738.65
+2025-12-25 | ECOMMERCE | 13 | 12 | 6859.98 | 2603.48 | 0.3795 | 527.69
+2025-12-25 | STORE | 8 | 6 | 5064.71 | 1856.71 | 0.3666 | 633.09
+(10 linhas)

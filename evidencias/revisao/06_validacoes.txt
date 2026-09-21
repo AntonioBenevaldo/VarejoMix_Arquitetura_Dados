@@ -1,0 +1,23 @@
+Arquivo: 06_validacoes.sql
+Executado em UTC: 2026-09-05T00:38:53.670720+00:00
+Servidor: PostgreSQL 18.3 (PGlite 0.5.8) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.74 (1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5), 32-bit
+SET
+CREATE VIEW
+teste | erros
+duplicidade_do_grao_analitico | 0
+pagamento_incompativel_com_pedido | 0
+pedidos_antes_do_cadastro | 0
+receita_analitica_nao_reconciliada | 0
+reserva_acima_do_estoque | 0
+total_pedido_diferente_dos_itens | 0
+ultima_compra_incorreta | 0
+(7 linhas)
+DO
+BEGIN
+SELECT 1
+UPDATE 40
+DO
+ROLLBACK
+resultado
+APROVADO: integridade e custo historico
+(1 linhas)

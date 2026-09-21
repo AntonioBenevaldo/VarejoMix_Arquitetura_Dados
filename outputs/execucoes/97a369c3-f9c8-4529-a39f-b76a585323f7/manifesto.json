@@ -1,0 +1,37 @@
+{
+  "cutoff_utc": "2025-10-01T00:00:00+00:00",
+  "feature_window_days": 365,
+  "target_window_days": 90,
+  "source_min_order_ts": "2024-12-01T06:50:11.740494+00:00",
+  "source_max_order_ts": "2025-12-31T19:33:58.080168+00:00",
+  "server_version": "PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit",
+  "extraction": "PostgreSQL via SQLAlchemy/pandas.read_sql",
+  "validation_context": "Execucao local do usuario",
+  "assumptions": [
+    "Vendas confirmadas: PAID/SHIPPED/DELIVERED com pagamento APPROVED integral.",
+    "Limites historicos e do alvo sao inclusivo no inicio e exclusivo no fim, em UTC.",
+    "Base sintetica com atividade a partir de dezembro/2024; janela de 365 dias usa os registros disponiveis.",
+    "Status e categorias sao do snapshot carregado; historico de alteracoes nao foi implementado."
+  ],
+  "run_id": "97a369c3-f9c8-4529-a39f-b76a585323f7",
+  "started_at_utc": "2026-09-07T00:46:21.032530+00:00",
+  "finished_at_utc": "2026-09-07T00:46:21.102137+00:00",
+  "code_sha256": "cd4e819dc0c3806b2c6946e69734ad75d68cf232f3515d934fe4cb77eacb4134",
+  "dataset_version": "sha256:c2676febd98e7b65d4dab43dad348bc7bb1c38f3b50b0c2b4bfcf42b4cac2fea",
+  "csv_sha256": "c2676febd98e7b65d4dab43dad348bc7bb1c38f3b50b0c2b4bfcf42b4cac2fea",
+  "parquet_sha256": "d9c112015ba9b7d3c8d21f05c2f5ae04aed81a2dc61417aeb9e0a47825142fcd",
+  "shape": [
+    162,
+    13
+  ],
+  "nulls": 0,
+  "duplicate_customers": 0,
+  "target_counts": {
+    "0": 41,
+    "1": 121
+  },
+  "snapshot_directory": "outputs/execucoes/97a369c3-f9c8-4529-a39f-b76a585323f7",
+  "python_version": "3.14.6",
+  "pandas_version": "3.0.5",
+  "project_version": "2.0.0"
+}

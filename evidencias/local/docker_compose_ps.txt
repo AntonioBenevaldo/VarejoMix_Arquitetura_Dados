@@ -1,0 +1,3 @@
+NAME                   IMAGE                COMMAND                  SERVICE    CREATED              STATUS                        PORTS
+varejomix-mongodb-1    mongo:7              "docker-entrypoint.s…"   mongodb    About a minute ago   Up About a minute (healthy)   127.0.0.1:27018->27017/tcp
+varejomix-postgres-1   postgres:16-alpine   "docker-entrypoint.s…"   postgres   About a minute ago   Up About a minute (healthy)   127.0.0.1:5434->5432/tcp

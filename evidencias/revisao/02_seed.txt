@@ -1,0 +1,18 @@
+Arquivo: 02_seed.sql
+Executado em UTC: 2026-09-05T00:24:01.072551+00:00
+Servidor: PostgreSQL 18.3 (PGlite 0.5.8) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.74 (1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5), 32-bit
+BEGIN
+SET
+CREATE FUNCTION
+INSERT 0 5
+INSERT 0 200
+INSERT 0 40
+INSERT 0 5000
+INSERT 0 10068
+UPDATE 5000
+INSERT 0 5000
+INSERT 0 2800
+UPDATE 2800
+DROP FUNCTION
+ANALYZE
+COMMIT

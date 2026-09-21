@@ -1,0 +1,44 @@
+Arquivo: 05_index_explain.sql
+Executado em UTC: 2026-09-05T00:29:27.865177+00:00
+Servidor: PostgreSQL 18.3 (PGlite 0.5.8) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.74 (1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5), 32-bit
+SET
+DROP INDEX
+ANALYZE
+etapa
+PLANO A - SEM INDICE ESPECIFICO
+(1 linhas)
+QUERY PLAN
+Seq Scan on orders  (cost=0.00..200.50 rows=272 width=39) (actual time=0.092..2.824 rows=285.00 loops=1)
+  Filter: ((order_ts >= '2025-12-01 00:00:00+00'::timestamp with time zone) AND (order_ts < '2025-12-15 00:00:00+00'::timestamp with time zone) AND ((status)::text = 'DELIVERED'::text))
+  Rows Removed by Filter: 4715
+  Buffers: shared hit=113
+Planning:
+  Buffers: shared hit=22
+Planning Time: 0.340 ms
+Execution Time: 8.629 ms
+(8 linhas)
+CREATE INDEX
+ANALYZE
+etapa
+PLANO B - COM INDICE ESPECIFICO
+(1 linhas)
+QUERY PLAN
+Bitmap Heap Scan on orders  (cost=16.38..134.14 rows=272 width=39) (actual time=4.622..9.169 rows=285.00 loops=1)
+  Recheck Cond: ((order_ts >= '2025-12-01 00:00:00+00'::timestamp with time zone) AND (order_ts < '2025-12-15 00:00:00+00'::timestamp with time zone) AND ((status)::text = 'DELIVERED'::text))
+  Heap Blocks: exact=59
+  Buffers: shared hit=68 read=4
+  ->  Bitmap Index Scan on idx_orders_order_date_status  (cost=0.00..16.31 rows=272 width=0) (actual time=4.362..4.363 rows=285.00 loops=1)
+        Index Cond: ((order_ts >= '2025-12-01 00:00:00+00'::timestamp with time zone) AND (order_ts < '2025-12-15 00:00:00+00'::timestamp with time zone) AND ((status)::text = 'DELIVERED'::text))
+        Index Searches: 1
+        Buffers: shared hit=9 read=4
+Planning:
+  Buffers: shared hit=26 read=1
+Planning Time: 0.394 ms
+Execution Time: 9.634 ms
+(12 linhas)
+etapa
+INDICE CRIADO
+(1 linhas)
+indexname | indexdef
+idx_orders_order_date_status | CREATE INDEX idx_orders_order_date_status ON oltp.orders USING btree (order_ts, status) INCLUDE (customer_id, total_amount)
+(1 linhas)

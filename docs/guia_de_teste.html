@@ -1,0 +1,192 @@
+<!doctype html><html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guia de teste - VarejoMix</title><style>body{max-width:1000px;margin:40px auto;padding:0 24px;font:17px/1.65 Arial;color:#203040}h1,h2{color:#164966}table{border-collapse:collapse;width:100%;margin:20px 0}td,th{border:1px solid #d1dbe3;padding:9px;text-align:left}th{background:#edf4f7}pre{background:#edf4f7;padding:16px;white-space:pre-wrap}code{font-size:.9em}a{color:#146589}</style><body><h1>VarejoMix V2 - refazer o trabalho e os testes</h1>
+<p>Este guia permite reproduzir o pacote corrigido em outra instalação. A execução local das 20:39 UTC foi validada, incluindo os EXPLAIN MongoDB. Este guia permite reproduzir o trabalho para estudo; não há pendência de repetição dos testes. Faça uma etapa por vez. Se aparecer erro, guarde uma captura da mensagem inteira antes de prosseguir.</p>
+<h2>1. Preparar a pasta</h2>
+<ol>
+<li>Baixe o ZIP corrigido.</li>
+<li>Clique com o botão direito e escolha <strong>Extrair Tudo</strong>.</li>
+<li>Extraia em uma pasta nova, como <code>VarejoMix_V2</code>, na Área de Trabalho.</li>
+<li>Abra a pasta extraída até encontrar <code>01_PREPARAR_WINDOWS.bat</code>, <code>README.md</code> e <code>docker-compose.yml</code> juntos.</li>
+</ol>
+<p>Mantenha a pasta anterior guardada. A V2 usa PostgreSQL 5434 e MongoDB 27018. Duas pastas da V2 no mesmo computador compartilham o projeto Docker <code>varejomix</code> e seus volumes; uma pasta nova não cria um banco independente. Não copie o ambiente virtual de outra instalação.</p>
+<h2>2. Abrir o Docker Desktop</h2>
+<p>Abra o Docker Desktop e aguarde o mecanismo terminar de iniciar. A primeira execução precisa baixar as imagens e pode demorar. O projeto usa PostgreSQL 16 e MongoDB 7.</p>
+<h2>3. Preparar Python e bancos</h2>
+<p>Dê dois cliques em <strong>01_PREPARAR_WINDOWS.bat</strong>.</p>
+<p>O arquivo verifica Python e Docker, cria o ambiente virtual, instala as dependências e inicia os bancos. Aguarde:</p>
+<pre><code class="language-text">PREPARACAO CONCLUIDA. Execute agora 02_TESTAR_WINDOWS.bat.
+</code></pre>
+<p>Se pedir que pressione uma tecla após a conclusão, pressione qualquer tecla. A primeira preparação é mais demorada; as próximas reutilizam as instalações e os dados.</p>
+<h2>4. Executar os testes completos</h2>
+<p>Dê dois cliques em <strong>02_TESTAR_WINDOWS.bat</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Etapa mostrada</th>
+<th>O que ela verifica</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1/6</td>
+<td>Serviços Docker disponíveis.</td>
+</tr>
+<tr>
+<td>2/6</td>
+<td>Integridade, consultas SQL e EXPLAIN antes/depois do índice.</td>
+</tr>
+<tr>
+<td>3/6</td>
+<td>Eventos MongoDB iguais ao JSON e compras conciliadas com PostgreSQL.</td>
+</tr>
+<tr>
+<td>4/6</td>
+<td>Funil de conversão, rankings e planos no MongoDB.</td>
+</tr>
+<tr>
+<td>5/6</td>
+<td>Notebook inteiro conectado ao PostgreSQL.</td>
+</tr>
+<tr>
+<td>6/6</td>
+<td>Contagens finais e registros reais de auditoria.</td>
+</tr>
+</tbody></table>
+<p>Ao terminar corretamente, aparecerá:</p>
+<pre><code class="language-text">APROVADO: evidencias em evidencias/local; dataset em outputs; notebook atualizado.
+</code></pre>
+<p>Após a correção de 20/09, o arquivo testes_regressao.txt deve registrar 11 testes com OK, e mongo_local.txt deve conter VAREJOMIX_MONGO_CONSULTAS_CONCLUIDAS sem erros. O comando deve terminar sem <code>Traceback</code>, <code>AssertionError</code> ou mensagem de falha. A abertura de uma tela ou de um arquivo sozinha não comprova que os testes passaram.</p>
+<h2>5. Conferir o resultado esperado</h2>
+<table>
+<thead>
+<tr>
+<th>Conferência</th>
+<th align="right">Valor V2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pedidos</td>
+<td align="right">5.000</td>
+</tr>
+<tr>
+<td>Itens</td>
+<td align="right">10.068</td>
+</tr>
+<tr>
+<td>Vendas confirmadas</td>
+<td align="right">4.730</td>
+</tr>
+<tr>
+<td>Valor confirmado</td>
+<td align="right">R$ 2.688.893,36</td>
+</tr>
+<tr>
+<td>Eventos</td>
+<td align="right">1.088</td>
+</tr>
+<tr>
+<td>Sessões</td>
+<td align="right">500</td>
+</tr>
+<tr>
+<td>Compras no funil</td>
+<td align="right">78</td>
+</tr>
+<tr>
+<td>Dataset</td>
+<td align="right">162 linhas e 13 colunas</td>
+</tr>
+<tr>
+<td>Recompra = 0</td>
+<td align="right">41 clientes</td>
+</tr>
+<tr>
+<td>Recompra = 1</td>
+<td align="right">121 clientes</td>
+</tr>
+<tr>
+<td>Nulos e IDs repetidos no dataset</td>
+<td align="right">Zero</td>
+</tr>
+</tbody></table>
+<p>O EXPLAIN consulta 285 pedidos entregues no período definido. Tempo, buffers e escolha de plano podem variar com a versão, estatísticas, memória e máquina; não force um plano para imitar a revisão. Registre e explique o resultado local.</p>
+<p>A tabela de auditoria começa vazia e recebe uma linha por tentativa de exportação iniciada. Depois de várias execuções, ela terá várias linhas. Isso é esperado.</p>
+<h2>6. Abrir e estudar no JupyterLab</h2>
+<ol>
+<li>Dê dois cliques em <strong>03_ABRIR_JUPYTERLAB.bat</strong>.</li>
+<li>Mantenha a janela do terminal aberta.</li>
+<li>No navegador, abra a pasta <code>notebooks</code> e o arquivo <code>analise_recompra.ipynb</code>.</li>
+<li>O notebook já terá as saídas produzidas pelo teste. Leia as premissas e a consulta SQL.</li>
+<li>Para repetir tudo, escolha <strong>Run &gt; Run All Cells</strong>.</li>
+<li>Aguarde desaparecer o indicador de execução e confira <code>CONCLUIDO: dataset exportado e auditado.</code>.</li>
+<li>Salve com <strong>Ctrl+S</strong>.</li>
+</ol>
+<p>Não cole comandos PowerShell dentro das células Python. Os comandos de terminal ficam neste guia; as células do notebook já estão preparadas.</p>
+<h2>7. Onde estão as evidências</h2>
+<ul>
+<li><code>evidencias/local/06_validacoes.txt</code>: sete verificações com zero erros e teste do custo histórico aprovado.</li>
+<li><code>evidencias/local/04_queries.txt</code>: consultas analíticas.</li>
+<li><code>evidencias/local/05_index_explain.txt</code>: plano sem e com índice.</li>
+<li><code>evidencias/local/eventos_reconciliados.json</code>: comparação com o MongoDB e reconciliação das 78 compras.</li>
+<li><code>evidencias/local/mongo_local.txt</code>: saídas do funil e dos planos.</li>
+<li><code>evidencias/local/notebook_executado.html</code>: notebook executado, aberto no navegador.</li>
+<li><code>evidencias/local/auditoria.json</code>: fotografia com cinco exportações SUCCESS registradas na coleta de 20/09/2026, por volta de 20:39 UTC.</li>
+<li><code>evidencias/local/LEIA_ME.md</code>: identificação da coleta atual, dos doze snapshots preservados e dos prints atuais e históricos.</li>
+<li><code>evidencias/local/prints/Testes_Funcionamento_VarejoMix.docx</code>: capturas organizadas para apresentação.</li>
+<li><code>outputs/customer_repurchase_features.csv</code> e <code>.parquet</code>: dataset mais recente.</li>
+<li><code>outputs/manifesto.json</code>: corte, versão, shape, hashes e origem.</li>
+<li><code>outputs/execucoes/</code>: cópias preservadas de cada exportação.</li>
+</ul>
+<p><code>evidencias/revisao/</code> documenta a revisão feita durante a correção, com PostgreSQL embarcado e execução das células por IPython. As evidências do seu computador devem ficar em <code>evidencias/local/</code>.</p>
+<h2>8. Fazer capturas para apresentar</h2>
+<p>Capture a conclusão dos testes, uma consulta SQL, o EXPLAIN, o funil MongoDB e a última célula do notebook. Evite capturar o endereço do Jupyter com token. Guarde as imagens em <code>evidencias/local/prints</code>.</p>
+<p>Para atualizar o HTML depois de executar manualmente o notebook, rode novamente <code>02_TESTAR_WINDOWS.bat</code>; ele executa e exporta o notebook inteiro.</p>
+<h2>9. Completar os links da entrega</h2>
+<p>O Word preserva o nome do aluno e do professor encontrados no arquivo original. Confira a identificação, incluindo a necessidade de RA/turma segundo a instituição. Preencha os links reais do repositório e do vídeo no Word e no README. Exporte o Word novamente para PDF e mantenha entre <strong>6 e 10 páginas</strong>.</p>
+<p>Para o repositório, crie/atualize uma pasta de projeto acessível ao professor, seguindo as regras da disciplina. Inclua código, documentação e evidências. Não envie ambiente virtual, caches, arquivo <code>.env</code> com configurações particulares nem dependências instaladas. O ZIP técnico inclui os artefatos; o repositório exige endereço próprio.</p>
+<h2>10. Gravar o vídeo</h2>
+<p>Use <code>ROTEIRO_VIDEO.md</code>. Mostre a arquitetura e as evidências reais do seu computador. Duração máxima: quatro minutos. Publique no YouTube conforme a exigência do enunciado; pode ser não listado. Coloque o endereço no README e no PDF.</p>
+<h2>11. Encerrar e retomar</h2>
+<p>Feche o JupyterLab com <strong>Ctrl+C</strong> no terminal e confirme, se solicitado. Execute <strong>04_ENCERRAR_WINDOWS.bat</strong> para parar os bancos mantendo os volumes.</p>
+<p>Em outro dia, abra o Docker Desktop, execute <code>01_PREPARAR_WINDOWS.bat</code> e depois <code>03_ABRIR_JUPYTERLAB.bat</code>. Para atualizar evidências, use <code>02_TESTAR_WINDOWS.bat</code>.</p>
+<h2>Problemas comuns</h2>
+<table>
+<thead>
+<tr>
+<th>Mensagem ou situação</th>
+<th>O que fazer</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Python não encontrado</td>
+<td>Instale Python, habilitando a opção de adicionar ao PATH, e abra um novo terminal.</td>
+</tr>
+<tr>
+<td>Docker não encontrado ou daemon indisponível</td>
+<td>Abra o Docker Desktop e aguarde; confira a instalação.</td>
+</tr>
+<tr>
+<td>Porta 5434/27018 ocupada</td>
+<td>Envie a mensagem de erro para ajustar as portas do Compose e do <code>.env</code> em conjunto.</td>
+</tr>
+<tr>
+<td>A carga continua com os números antigos</td>
+<td>Confira se abriu a pasta V2. O Compose da V2 usa o projeto <code>varejomix</code>.</td>
+</tr>
+<tr>
+<td><code>ModuleNotFoundError</code></td>
+<td>Execute novamente o preparador; use o lançador do JupyterLab desta pasta.</td>
+</tr>
+<tr>
+<td><code>AssertionError</code> de eventos ou dados</td>
+<td>Pare e envie a captura. Não edite o resultado esperado para fazer o teste passar.</td>
+</tr>
+<tr>
+<td>Nada abre no navegador</td>
+<td>Copie o endereço local mostrado pelo terminal do JupyterLab para o navegador, sem compartilhá-lo.</td>
+</tr>
+<tr>
+<td>Corte sem cobertura de 90 dias</td>
+<td>Use o corte padrão <code>2025-10-01</code>; a carga vai até dezembro/2025.</td>
+</tr>
+</tbody></table>
+<p>Não é necessário apagar volumes para repetir consultas e notebook. Uma recriação de banco só deve ser feita se for preciso recarregar o schema/carga da V2 e depois de preservar o que você deseja guardar.</p>
+</body></html>

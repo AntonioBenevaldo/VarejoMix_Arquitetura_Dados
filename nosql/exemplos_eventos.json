@@ -1,0 +1,105 @@
+[
+  {
+    "event_id": "evt-000001",
+    "schema_version": 1,
+    "event_name": "page_view",
+    "event_time": "2025-12-26T14:26:52.652Z",
+    "session_id": "ses-00001",
+    "customer_id": 4,
+    "device": {
+      "type": "mobile",
+      "os": "Android"
+    },
+    "session": {
+      "source": "email",
+      "campaign": null
+    },
+    "page": {
+      "url": "/catalogo",
+      "referrer": "email"
+    }
+  },
+  {
+    "event_id": "evt-000002",
+    "schema_version": 1,
+    "event_name": "search",
+    "event_time": "2025-12-26T14:27:52.652Z",
+    "session_id": "ses-00001",
+    "customer_id": 4,
+    "device": {
+      "type": "mobile",
+      "os": "Android"
+    },
+    "session": {
+      "source": "email",
+      "campaign": null
+    },
+    "search": {
+      "term": "produto sintetico",
+      "result_count": 40
+    }
+  },
+  {
+    "event_id": "evt-000003",
+    "schema_version": 1,
+    "event_name": "add_to_cart",
+    "event_time": "2025-12-26T14:29:52.652Z",
+    "session_id": "ses-00001",
+    "customer_id": 4,
+    "device": {
+      "type": "mobile",
+      "os": "Android"
+    },
+    "session": {
+      "source": "email",
+      "campaign": null
+    },
+    "product_id": 32,
+    "product_context": {
+      "sku": "SKU-0032",
+      "displayed_price": 204.22
+    }
+  },
+  {
+    "event_id": "evt-000004",
+    "schema_version": 1,
+    "event_name": "checkout_start",
+    "event_time": "2025-12-26T14:32:52.652Z",
+    "session_id": "ses-00001",
+    "customer_id": 4,
+    "device": {
+      "type": "mobile",
+      "os": "Android"
+    },
+    "session": {
+      "source": "email",
+      "campaign": null
+    },
+    "cart": {
+      "item_count": 6,
+      "displayed_total": 906.32
+    }
+  },
+  {
+    "event_id": "evt-000005",
+    "schema_version": 1,
+    "event_name": "purchase",
+    "event_time": "2025-12-26T14:39:52.652Z",
+    "session_id": "ses-00001",
+    "customer_id": 4,
+    "device": {
+      "type": "mobile",
+      "os": "Android"
+    },
+    "session": {
+      "source": "email",
+      "campaign": null
+    },
+    "order_id": 672,
+    "purchase": {
+      "item_count": 6,
+      "total": 906.32,
+      "currency": "BRL"
+    }
+  }
+]

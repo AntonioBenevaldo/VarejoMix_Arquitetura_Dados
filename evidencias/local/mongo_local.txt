@@ -1,0 +1,348 @@
+Executado em UTC: 2026-09-20T22:04:45.251723+00:00
+Modo: mongosh --file
+=== 1) Volume por tipo de evento ===
+[
+  {
+    eventos: 500,
+    evento: 'page_view',
+    sessoes: 500
+  },
+  {
+    eventos: 220,
+    evento: 'add_to_cart',
+    sessoes: 220
+  },
+  {
+    eventos: 167,
+    evento: 'search',
+    sessoes: 167
+  },
+  {
+    eventos: 123,
+    evento: 'checkout_start',
+    sessoes: 123
+  },
+  {
+    eventos: 78,
+    evento: 'purchase',
+    sessoes: 78
+  }
+]
+=== 2) Funil de conversão por sessão ===
+[
+  {
+    sessoes: 500,
+    page_view: 500,
+    add_to_cart: 220,
+    checkout_start: 123,
+    purchase: 78,
+    taxa_view_para_cart: 0.44,
+    taxa_cart_para_checkout: 0.5591,
+    taxa_checkout_para_compra: 0.6341,
+    conversao_total: 0.156
+  }
+]
+=== 3) Conversão diária (sessão x dia) ===
+[
+  {
+    _id: '2025-12-15',
+    sessoes: 29,
+    com_carrinho: 11,
+    compras: 2,
+    taxa_conversao: 0.069
+  },
+  {
+    _id: '2025-12-16',
+    sessoes: 33,
+    com_carrinho: 8,
+    compras: 1,
+    taxa_conversao: 0.0303
+  },
+  {
+    _id: '2025-12-17',
+    sessoes: 18,
+    com_carrinho: 11,
+    compras: 4,
+    taxa_conversao: 0.2222
+  },
+  {
+    _id: '2025-12-18',
+    sessoes: 33,
+    com_carrinho: 15,
+    compras: 4,
+    taxa_conversao: 0.1212
+  },
+  {
+    _id: '2025-12-19',
+    sessoes: 42,
+    com_carrinho: 20,
+    compras: 5,
+    taxa_conversao: 0.119
+  },
+  {
+    _id: '2025-12-20',
+    sessoes: 39,
+    com_carrinho: 17,
+    compras: 8,
+    taxa_conversao: 0.2051
+  },
+  {
+    _id: '2025-12-21',
+    sessoes: 29,
+    com_carrinho: 13,
+    compras: 6,
+    taxa_conversao: 0.2069
+  },
+  {
+    _id: '2025-12-22',
+    sessoes: 35,
+    com_carrinho: 18,
+    compras: 3,
+    taxa_conversao: 0.0857
+  },
+  {
+    _id: '2025-12-23',
+    sessoes: 34,
+    com_carrinho: 15,
+    compras: 4,
+    taxa_conversao: 0.1176
+  },
+  {
+    _id: '2025-12-24',
+    sessoes: 30,
+    com_carrinho: 15,
+    compras: 8,
+    taxa_conversao: 0.2667
+  },
+  {
+    _id: '2025-12-25',
+    sessoes: 29,
+    com_carrinho: 10,
+    compras: 2,
+    taxa_conversao: 0.069
+  },
+  {
+    _id: '2025-12-26',
+    sessoes: 35,
+    com_carrinho: 15,
+    compras: 7,
+    taxa_conversao: 0.2
+  },
+  {
+    _id: '2025-12-27',
+    sessoes: 43,
+    com_carrinho: 24,
+    compras: 11,
+    taxa_conversao: 0.2558
+  },
+  {
+    _id: '2025-12-28',
+    sessoes: 38,
+    com_carrinho: 14,
+    compras: 7,
+    taxa_conversao: 0.1842
+  },
+  {
+    _id: '2025-12-29',
+    sessoes: 34,
+    com_carrinho: 14,
+    compras: 6,
+    taxa_conversao: 0.1765
+  }
+]
+=== 4) Top 10 produtos adicionados ao carrinho ===
+[
+  {
+    adicoes: 13,
+    product_id: Long('38'),
+    sku: 'SKU-0038',
+    preco_medio_exibido: 240.47
+  },
+  {
+    adicoes: 11,
+    product_id: Long('23'),
+    sku: 'SKU-0023',
+    preco_medio_exibido: 158.48
+  },
+  {
+    adicoes: 10,
+    product_id: Long('12'),
+    sku: 'SKU-0012',
+    preco_medio_exibido: 97.95
+  },
+  {
+    adicoes: 10,
+    product_id: Long('32'),
+    sku: 'SKU-0032',
+    preco_medio_exibido: 207.83
+  },
+  {
+    adicoes: 9,
+    product_id: Long('6'),
+    sku: 'SKU-0006',
+    preco_medio_exibido: 67.01
+  },
+  {
+    adicoes: 9,
+    product_id: Long('36'),
+    sku: 'SKU-0036',
+    preco_medio_exibido: 227.42
+  },
+  {
+    adicoes: 8,
+    product_id: Long('5'),
+    sku: 'SKU-0005',
+    preco_medio_exibido: 62.76
+  },
+  {
+    adicoes: 8,
+    product_id: Long('15'),
+    sku: 'SKU-0015',
+    preco_medio_exibido: 116.4
+  },
+  {
+    adicoes: 8,
+    product_id: Long('21'),
+    sku: 'SKU-0021',
+    preco_medio_exibido: 149.91
+  },
+  {
+    adicoes: 8,
+    product_id: Long('29'),
+    sku: 'SKU-0029',
+    preco_medio_exibido: 192.03
+  }
+]
+=== 5) Origem de tráfego x conversão ===
+[
+  {
+    _id: 'paid',
+    sessoes: 134,
+    compras: 27,
+    conversao: 0.2015
+  },
+  {
+    _id: 'email',
+    sessoes: 107,
+    compras: 18,
+    conversao: 0.1682
+  },
+  {
+    _id: 'direct',
+    sessoes: 127,
+    compras: 19,
+    conversao: 0.1496
+  },
+  {
+    _id: 'organic',
+    sessoes: 132,
+    compras: 14,
+    conversao: 0.1061
+  }
+]
+=== 6) Jornada completa de uma sessão que comprou ===
+[
+  {
+    event_id: 'evt-000205',
+    event_name: 'page_view',
+    event_time: ISODate('2025-12-15T02:41:14.652Z')
+  },
+  {
+    event_id: 'evt-000206',
+    event_name: 'add_to_cart',
+    event_time: ISODate('2025-12-15T02:44:14.652Z'),
+    product_id: Long('28')
+  },
+  {
+    event_id: 'evt-000207',
+    event_name: 'checkout_start',
+    event_time: ISODate('2025-12-15T02:47:14.652Z')
+  },
+  {
+    event_id: 'evt-000208',
+    event_name: 'purchase',
+    event_time: ISODate('2025-12-15T02:54:14.652Z')
+  }
+]
+=== 7) Uso de índice: explain da consulta por sessão ===
+{
+  estagio_vencedor: 'IXSCAN',
+  indice: {
+    session_id: 1,
+    event_time: 1
+  },
+  documentos_retornados: 4,
+  documentos_examinados: 4,
+  chaves_examinadas: 4,
+  tempo_ms: 0
+}
+=== 8) Contraste: consulta sem índice de apoio (COLLSCAN) ===
+{
+  estagio: 'COLLSCAN',
+  documentos_retornados: 1088,
+  documentos_examinados: 1088,
+  tempo_ms: 0
+}
+=== 9) Índices da coleção ===
+[
+  {
+    v: 2,
+    key: {
+      _id: 1
+    },
+    name: '_id_'
+  },
+  {
+    v: 2,
+    key: {
+      event_id: 1
+    },
+    name: 'event_id_1',
+    unique: true
+  },
+  {
+    v: 2,
+    key: {
+      event_time: 1
+    },
+    name: 'event_time_1'
+  },
+  {
+    v: 2,
+    key: {
+      session_id: 1,
+      event_time: 1
+    },
+    name: 'session_id_1_event_time_1'
+  },
+  {
+    v: 2,
+    key: {
+      customer_id: 1,
+      event_time: -1
+    },
+    name: 'customer_id_1_event_time_-1'
+  },
+  {
+    v: 2,
+    key: {
+      event_name: 1,
+      event_time: 1
+    },
+    name: 'event_name_1_event_time_1'
+  },
+  {
+    v: 2,
+    key: {
+      product_id: 1,
+      event_time: 1
+    },
+    name: 'product_id_1_event_time_1',
+    partialFilterExpression: {
+      product_id: {
+        '$exists': true
+      }
+    }
+  }
+]
+VAREJOMIX_MONGO_CONSULTAS_CONCLUIDAS

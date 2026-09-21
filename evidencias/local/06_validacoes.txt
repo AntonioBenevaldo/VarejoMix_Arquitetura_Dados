@@ -1,0 +1,23 @@
+Arquivo: 06_validacoes.sql
+Executado em UTC: 2026-09-20T22:04:43.955839+00:00
+Servidor: PostgreSQL 16.15 on x86_64-pc-linux-musl, compiled by gcc (Alpine 15.2.0) 15.2.0, 64-bit
+SET
+CREATE VIEW
+teste | erros
+duplicidade_do_grao_analitico | 0
+pagamento_incompativel_com_pedido | 0
+pedidos_antes_do_cadastro | 0
+receita_analitica_nao_reconciliada | 0
+reserva_acima_do_estoque | 0
+total_pedido_diferente_dos_itens | 0
+ultima_compra_incorreta | 0
+(7 linhas)
+DO
+BEGIN
+SELECT 1
+UPDATE 40
+DO
+ROLLBACK
+resultado
+APROVADO: integridade e custo historico
+(1 linhas)

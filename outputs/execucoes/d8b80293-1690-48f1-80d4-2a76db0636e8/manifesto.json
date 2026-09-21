@@ -1,0 +1,37 @@
+{
+  "cutoff_utc": "2025-10-01T00:00:00+00:00",
+  "feature_window_days": 365,
+  "target_window_days": 90,
+  "source_min_order_ts": "2024-12-01T06:50:11.740494+00:00",
+  "source_max_order_ts": "2025-12-31T19:33:58.080168+00:00",
+  "server_version": "PostgreSQL 18.3 (PGlite 0.5.8) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.74 (1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5), 32-bit",
+  "extraction": "PostgreSQL via SQLAlchemy/pandas.read_sql",
+  "validation_context": "Revisao automatizada: PostgreSQL embarcado PGlite; Docker e MongoDB devem ser confirmados localmente.",
+  "assumptions": [
+    "Vendas confirmadas: PAID/SHIPPED/DELIVERED com pagamento APPROVED integral.",
+    "Limites historicos e do alvo sao inclusivo no inicio e exclusivo no fim, em UTC.",
+    "Base sintetica com atividade a partir de dezembro/2024; janela de 365 dias usa os registros disponiveis.",
+    "Status e categorias sao do snapshot carregado; historico de alteracoes nao foi implementado."
+  ],
+  "run_id": "d8b80293-1690-48f1-80d4-2a76db0636e8",
+  "started_at_utc": "2026-09-05T00:40:13.631293+00:00",
+  "finished_at_utc": "2026-09-05T00:40:13.701413+00:00",
+  "code_sha256": "f088daee9188403b0835237c5a6b26b4fa57d859e7bea773d4d3f62bd9537238",
+  "dataset_version": "sha256:c2676febd98e7b65d4dab43dad348bc7bb1c38f3b50b0c2b4bfcf42b4cac2fea",
+  "csv_sha256": "c2676febd98e7b65d4dab43dad348bc7bb1c38f3b50b0c2b4bfcf42b4cac2fea",
+  "parquet_sha256": "603410c654ebdb3346e62dfd5f0ee63d8560ae1f1615720956b7853210a8f39c",
+  "shape": [
+    162,
+    13
+  ],
+  "nulls": 0,
+  "duplicate_customers": 0,
+  "target_counts": {
+    "0": 41,
+    "1": 121
+  },
+  "snapshot_directory": "outputs/execucoes/d8b80293-1690-48f1-80d4-2a76db0636e8",
+  "python_version": "3.12.13",
+  "pandas_version": "2.2.3",
+  "project_version": "2.0.0"
+}

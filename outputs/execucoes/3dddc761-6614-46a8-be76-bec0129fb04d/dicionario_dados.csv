@@ -1,0 +1,14 @@
+campo,tipo,descricao
+customer_id,inteiro,Identificador tecnico sintetico; nao e uma anonimizacao aplicada a dados reais.
+recency_days,inteiro,Dias UTC desde a ultima venda confirmada anterior ao corte.
+frequency_365d,inteiro,"Vendas confirmadas na janela [corte-365 dias, corte)."
+monetary_365d,decimal BRL,Soma dos totais liquidos na janela historica.
+average_ticket,decimal BRL,Valor medio por venda confirmada na janela.
+ecommerce_share,decimal 0 a 1,Proporcao de vendas confirmadas no e-commerce.
+distinct_categories,inteiro,Categorias distintas nos itens da janela historica.
+repurchase_90d,binario,"1 se existe venda confirmada em [corte, corte+90 dias); senao 0."
+r_score,inteiro 1 a 3,Escore de recencia: menor recencia recebe maior escore; empates iguais.
+f_score,inteiro 1 a 3,Escore da posicao percentual da frequencia; empates iguais.
+m_score,inteiro 1 a 3,Escore da posicao percentual do gasto; empates iguais.
+rfm_score,inteiro 3 a 9,Soma r_score + f_score + m_score.
+segment,categoria,"Manutencao (3-4), Potencial (5-6), Alto valor (7-9)."
