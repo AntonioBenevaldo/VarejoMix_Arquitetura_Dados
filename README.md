@@ -5,7 +5,7 @@ Projeto da disciplina **Databases for Data Science**, de Ciência de Dados.
 - **Aluno:** Antônio Benevaldo Chaves Santana.
 - **Professor:** Felipe Becker Nunes.
 - **Relatório:** [PDF](relatorio/Relatorio_Tecnico_VarejoMix.pdf) e [Word editável](relatorio/Relatorio_Tecnico_VarejoMix.docx).
-- **Repositório:** [https://github.com/AntonioBenevaldo/VarejoMix_Arquitetura_Dados].
+- **Repositório:** https://github.com/AntonioBenevaldo/VarejoMix_Arquitetura_Dados.
 - **Vídeo no YouTube, até 4 minutos:** [PREENCHER COM O LINK DO VÍDEO].
 - **Comece aqui:** [guia completo](docs/GUIA_DE_TESTE.md) ou abra `docs/guia_de_teste.html` no navegador.
 
