@@ -1,0 +1,56 @@
+ .env.example                                       |     3 [32m+[m
+ .gitignore                                         |   223 [32m+[m[31m-[m
+ 01_PREPARAR_WINDOWS.bat                            |    20 [32m+[m
+ 02_TESTAR_WINDOWS.bat                              |    11 [32m+[m
+ 03_ABRIR_JUPYTERLAB.bat                            |     4 [32m+[m
+ 04_ENCERRAR_WINDOWS.bat                            |     4 [32m+[m
+ README.md                                          |   157 [32m+[m[31m-[m
+ VERSION                                            |     1 [32m+[m
+ data/eventos_sinteticos.json                       | 22138 [32m+++++++++++++++++++[m
+ diagramas/arquitetura_logica.png                   |   Bin [31m0[m -> [32m147567[m bytes
+ diagramas/modelo_estrela.png                       |   Bin [31m0[m -> [32m111763[m bytes
+ docker-compose.yml                                 |    44 [32m+[m
+ docs/CORRECOES_FINAIS.md                           |     7 [32m+[m
+ docs/CORRECOES_V2.md                               |    23 [32m+[m
+ docs/GUIA_DE_TESTE.md                              |   135 [32m+[m
+ docs/ROTEIRO_VIDEO.md                              |    35 [32m+[m
+ docs/VALIDACAO_20SET.md                            |    44 [32m+[m
+ docs/guia_de_teste.html                            |   192 [32m+[m
+ evidencias/local/04_queries.txt                    |   492 [32m+[m
+ evidencias/local/05_index_explain.txt              |    43 [32m+[m
+ evidencias/local/06_validacoes.txt                 |    23 [32m+[m
+ evidencias/local/07_contagens.txt                  |    35 [32m+[m
+ evidencias/local/LEIA_ME.md                        |    34 [32m+[m
+ evidencias/local/auditoria.json                    |    44 [32m+[m
+ .../codigo_da_coleta_20set/nosql/01-mongo-init.js  |    35 [32m+[m
+ .../nosql/02-eventos-sinteticos.js                 |  1100 [32m+[m
+ .../nosql/03-consultas_funil.js                    |   139 [32m+[m
+ .../nosql/exemplos_eventos.json                    |   105 [32m+[m
+ .../nosql/modelagem_eventos.md                     |    41 [32m+[m
+ .../scripts/coletar_evidencias.py                  |    47 [32m+[m
+ .../scripts/coletar_evidencias.sh                  |     4 [32m+[m
+ .../local/codigo_da_coleta_20set/scripts/config.py |    13 [32m+[m
+ .../codigo_da_coleta_20set/scripts/executar_sql.py |    36 [32m+[m
+ .../scripts/gerar_dataset.py                       |   111 [32m+[m
+ .../scripts/gerar_diagramas.py                     |   141 [32m+[m
+ .../scripts/gerar_eventos.py                       |    79 [32m+[m
+ .../scripts/validar_eventos.py                     |    58 [32m+[m
+ .../local/codigo_da_coleta_20set/sql/01_schema.sql |   126 [32m+[m
+ .../local/codigo_da_coleta_20set/sql/02_seed.sql   |   211 [32m+[m
+ .../codigo_da_coleta_20set/sql/03_analytics.sql    |    92 [32m+[m
+ .../codigo_da_coleta_20set/sql/04_queries.sql      |    86 [32m+[m
+ .../sql/05_index_explain.sql                       |    36 [32m+[m
+ .../codigo_da_coleta_20set/sql/06_validacoes.sql   |    52 [32m+[m
+ .../codigo_da_coleta_20set/sql/07_contagens.sql    |    11 [32m+[m
+ .../codigo_da_coleta_20set/sql/08_features.sql     |    33 [32m+[m
+ evidencias/local/docker_compose_ps.txt             |     3 [32m+[m
+ evidencias/local/eventos_reconciliados.json        |    22 [32m+[m
+ evidencias/local/mongo_local.txt                   |   348 [32m+[m
+ evidencias/local/notebook_executado.html           |  8742 [32m++++++++[m
+ .../prints/Testes_Funcionamento_VarejoMix.docx     |   Bin [31m0[m -> [32m343857[m bytes
+ evidencias/local/prints/originais/captura_01.png   |   Bin [31m0[m -> [32m129677[m bytes
+ evidencias/local/prints/originais/captura_02.png   |   Bin [31m0[m -> [32m47354[m bytes
+ evidencias/local/prints/originais/captura_03.png   |   Bin [31m0[m -> [32m141876[m bytes
+ evidencias/local/prints/originais/captura_04.png   |   Bin [31m0[m -> [32m117876[m bytes
+ evidencias/local/testes_regressao.txt              |    16 [32m+[m
+ evidencias/revisao/01_schema.txt   
